@@ -1,1 +1,1 @@
-https://rpc.silknodes.io/atomone
+https://localhost:26657
