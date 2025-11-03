@@ -92,14 +92,13 @@ def get_vuln_validators(validator_url_: str):
             node_data    = node_data["result"]
 
             voting_power = int(node_data["validator_info"]["voting_power"])
-            peer_id      = str(node_data["node_info"]["id"])
+            tx_index      = str(node_data["node_info"]["other"]["tx_index"])
             moniker      = str(node_data["node_info"]["moniker"])
             network      = str(node_data["node_info"]["network"])
-            block_height = int(node_data["sync_info"]["latest_block_height"])
             earliest_block_height = int(node_data["sync_info"]["earliest_block_height"])
             sync_status  = str(node_data["sync_info"]["catching_up"])
 
-            return f'{moniker},{validator_url_},{network},{block_height},{earliest_block_height},{sync_status},{voting_power}'
+            return f'{moniker},{validator_url_},{network},{earliest_block_height},{tx_index},{sync_status},{voting_power}'
 
         else:
             return 'rpc_not_available'
@@ -115,7 +114,7 @@ except:
     exit(1)
 print("Version: 0.1")
 
-CSV_HEADER_STR    = 'moniker,validator_url_,network,block_height,earliest_block_height,syncing?,voting_power'
+CSV_HEADER_STR    = 'moniker,validator_url_,network,earliest_block_height,tx_index,syncing?,voting_power'
 verbose_mode      = str(c["verbose_mode"])
 rpc_file_name     = str(c["rpc_file_name"])
 genesis_file_url  = str(c["genesis_file_url"])
