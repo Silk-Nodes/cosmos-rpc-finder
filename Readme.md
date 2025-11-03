@@ -1,10 +1,10 @@
 # cosmos-rpc-finder
 [Tool for Cosmos & Tendermint based projects](https://tendermint.com/)  
-Our site: http://staketab.com/
+Our site: http://silknodes.io/
 
 ## Description
 This tool can be useful for:  
-- Search for public RPC  
+- Search for public RPC and ArchiveNodes.
 - Search for publicly available RPCs with an active stake  
 *This configuration is not secure due to the possibility of DoS attacks
 
@@ -14,8 +14,8 @@ This tool can be useful for:
 ## Install
 1. Download config file and change the parameters to suit you
 ```
-curl -s https://raw.githubusercontent.com/c29r3/cosmos-rpc-finder/master/config.yml > config.yml; \
-curl -s https://raw.githubusercontent.com/c29r3/cosmos-rpc-finder/master/rpc_urls.txt > rpc_urls.txt; \
+curl -s https://raw.githubusercontent.com/silknodes/cosmos-rpc-finder/master/config.yml > config.yml; \
+curl -s https://raw.githubusercontent.com/silknodes/cosmos-rpc-finder/master/rpc_urls.txt > rpc_urls.txt; \
 mkdir results && chmod 777 results
 ```
 
@@ -50,13 +50,13 @@ docker run -it --rm \
 -v $(pwd)/rpc_urls.txt:/rpc-finder/rpc_urls.txt \
 -v $(pwd)/results:/rpc-finder/results \
 --name rpc-finder \
-c29r3/cosmos-rpc-finder
+silknodes/cosmos-rpc-finder
 ```
 
 #### Update docker image  
 After running the command below, go to step 2  
 ```
 docker rm -f rpc-finder; \
-curl -s https://raw.githubusercontent.com/c29r3/cosmos-rpc-finder/master/config.yml > config.yml; \
-docker pull c29r3/cosmos-rpc-finder
+curl -s https://raw.githubusercontent.com/silknodes/cosmos-rpc-finder/master/config.yml > config.yml; \
+docker pull silknodes/cosmos-rpc-finder
 ```

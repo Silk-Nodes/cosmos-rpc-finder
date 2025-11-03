@@ -96,9 +96,10 @@ def get_vuln_validators(validator_url_: str):
             moniker      = str(node_data["node_info"]["moniker"])
             network      = str(node_data["node_info"]["network"])
             block_height = int(node_data["sync_info"]["latest_block_height"])
+            earliest_block_height = int(node_data["sync_info"]["earliest_block_height"])
             sync_status  = str(node_data["sync_info"]["catching_up"])
 
-            return f'{moniker},{validator_url_},{network},{peer_id},{block_height},{sync_status},{voting_power}'
+            return f'{moniker},{validator_url_},{network},{peer_id},{block_height},{earliest_block_height},{sync_status},{voting_power}'
 
         else:
             return 'rpc_not_available'
