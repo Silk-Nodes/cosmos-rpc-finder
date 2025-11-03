@@ -12,4 +12,4 @@ rpc_file_name: rpc_urls.txt
 provider_timeout: 4
 
 # Link to the file where the ip addresses of the nodes are located (optional)
-genesis_file_url: http://localhost:26657/genesis
+genesis_file_url: ""
